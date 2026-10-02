@@ -1,13 +1,16 @@
+
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(cors());
+
 const PORT = 3000;
 
 // Middleware
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "../public")));
 
 // ข้อมูล Todo ชั่วคราว
 let todos = [
